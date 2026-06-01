@@ -3,28 +3,24 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://aframe.io/releases/1.2.0/AFRAME.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.5/dist/mindar-image-aframe.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/dist/mindar-image-aframe.prod.js"></script>
     <style>
       body { margin: 0; overflow: hidden; }
-      /* Gaya untuk loading screen bawaan agar rapi */
-      .mindar-ui-loading { background-image: none !important; background-color: #fff !important; }
     </style>
   </head>
   <body>
-    <a-scene mindar-image="imageTargetSrc: ./targets.mind; autoStart: true; uiLoading: yes; uiError: yes; uiScanning: yes;" 
-             color-space="sRGB" 
-             embedded 
-             renderer="colorManagement: true, sortObjects: true" 
-             vr-mode-ui="enabled: false" 
-             device-orientation-permission-ui="enabled: true">
+    <div style="position: absolute; top: 10px; left: 10px; z-index: 999; background: white; padding: 10px; font-family: sans-serif;">
+      <b>Status: Kodingan Gulali AR Aktif!</b>
+    </div>
+
+    <a-scene mindar-image="imageTargetSrc: ./targets.mind; autoStart: true; uiLoading: no;" 
+             embedded vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: true">
       
-      <a-camera position="0 0 0" look-controls="enabled: false" wake-lock="true"></a-camera>
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
       <a-entity mindar-image-target="targetIndex: 0">
-        <a-gltf-model rotation="0 0 0" position="0 0 0" scale="0.1 0.1 0.1" src="#kudaModel" animation-mixer></a-gltf-model>
-        <a-box position="0 0 0" material="color: red; opacity: 0.7" scale="0.5 0.5 0.5"></a-box>
+        <a-box position="0 0 0" material="color: red" scale="0.5 0.5 0.5"></a-box>
       </a-entity>
-      
     </a-scene>
   </body>
 </html>
